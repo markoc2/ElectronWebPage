@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Curso : Diseño y Programación de Aplicaciones Gráficas</title>
+
+    <!-- Bootstrap CSS CDN --> 
+    <link rel="stylesheet" href="css/bootstrap.min.css"  >
+    <!-- Our Custom CSS --> 
+    <link rel="stylesheet" href="css/style5.css"  > 
+
+    <!-- Font Awesome JS -->
+    <script src="js/solid.js" ></script>  
+    <script src="js/fontawesome.js" ></script>   
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h4>Aplicaciones Gráficas en C#</h4>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Menú</p>
+                <li  >
+                     <a href="index.html">Inicio</a>
+                </li>
+                <li  >
+                     <a  href="index_intro.html">Introducción</a>
+                </li>
+                <li>
+                     
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle show">Aplicaciones Gráficas</a>
+                    <ul class="  list-unstyled" id="pageSubmenu">
+                        <li class="active" >
+                           <a href="index_proy.html">Creación de proyecto</a>
+                        </li>
+                        <li>
+                            <a href="index_transf.html">Tranformaciones Geométricas</a>
+                        </li>
+                        <li>
+                            <a href="index_desing.html">Diseño de Interfaces</a>
+                        </li>
+                        <li>
+                            <a href="index_animation.html">Animaciones</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a  href="index_about.html">Acerca de</a>
+                </li> 
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a class="nav-link article" id="close-btn" href="#">Cerrar</a> 
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button> 
+  
+                     
+                </div>
+            </nav>
+             
+
+             <h2 >Abrir Visual Studio </h2>
+      <ol>
+      <li><p>En la ventana de inicio, Seleccione <strong>Crear un nuevo proyecto</strong>.</p>
+      <p><img src="images/visualstudio1.png" class="featurette-image img-fluid mx-auto" ></p>
+      </li>
+      <li><p>En la ventana <strong>Crear un nuevo proyecto</strong>, en la seccion de busqueda introduzca <em>Windows Forms</em>. Despues, Seleccione <strong>Desktop</strong> en la lista de <strong>Tipo de proyecto</strong>.</p>
+      <p>Despues de aplicar el filtro de <strong>Tipo de proyecto</strong>, seleccionamos <strong>Windows Forms App (.NET Framework)</strong> plantilla para C # o Visual Basic, y luego Seleccione <strong>Siguiente</strong>.</p>
+      <p><img src="images/visualstudio2.png" class="featurette-image img-fluid mx-auto"  ></p>
+      <div class="alert is-info">
+      <p class="alert-title"><span class="docon docon-status-error-outline" aria-hidden="true"></span> Nota</p>
+
+      <p>Si no ve la plantilla de la aplicación <strong>Windows Forms App (.NET Framework)</strong> , puede instalarla desde la ventana <strong>Crear un nuevo proyecto</strong>. En el <strong>¿No encuentras lo que estás buscando?</strong> mensaje, seleccionamos el  enlace <strong>Instalar más herramientas y características</strong>. </p>
+      
+      <p>Despues, en el instalador de visual Visual Studio, seleccionamos <strong>.NET desktop development</strong> en carga de trabajo.</p>
+      <p><img src="images/visualstudio3.png" class="featurette-image img-fluid mx-auto" ></p>
+      <p>
+        Luego de eso, seleccionamos el botón  <strong>Modificar</strong>  en el Visual Studio Installer. Es posible que se le solicite que guarde su trabajo; Si es así, hazlo. A continuación, seleccione <strong>Continuar</strong> para instalar la carga de trabajo. </p>
+      </div>
+      </li>
+      <li><p>En la ventana de <strong>Configuración de nuevo proyecto</strong>, introduzca <em>Proyectos_Graficos</em> como <strong>Nombre del Proyecto</strong> en le cuadro de texto. Luego, Seleccione <strong>Crear</strong>.
+        <p><img src="images/visualstudio3.png" class="featurette-image img-fluid mx-auto" ></p>
+      </p>
+      </li>
+      </ol>
+
+            <div class="line"></div>
+
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="js/jquery.min.js"></script> 
+    <!-- Popper.JS -->
+    <script src="js/popper.min.js"></script>  
+    <!-- Bootstrap JS --> 
+    <script src="js/bootstrap.min.js" ></script>  
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+   
+            $('#close-btn').on('click', e => {
+                window.close() 
+            })
+        });
+    </script>
+</body>
+
+</html>
+
+
+ 

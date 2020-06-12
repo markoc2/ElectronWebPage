@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Curso : Diseño y Programación de Aplicaciones Gráficas</title>
+
+    <!-- Bootstrap CSS CDN --> 
+    <link rel="stylesheet" href="css/bootstrap.min.css"  >
+    <!-- Our Custom CSS --> 
+    <link rel="stylesheet" href="css/style5.css"  > 
+
+    <!-- Font Awesome JS -->
+    <script src="js/solid.js" ></script>  
+    <script src="js/fontawesome.js" ></script>   
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h4>Aplicaciones Gráficas en C#</h4>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Menú</p>
+                <li >
+                     <a href="index.html">Inicio</a>
+                </li>
+                 <li class="active" >
+                        <a href="index_intro.html">Introducción</a>
+                 </li>
+                <li>
+                   
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Aplicaciones Gráficas</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                           <a  href="index_proy.html">Creación de proyecto</a>
+                        </li>
+                        <li>
+                            <a href="index_transf.html">Tranformaciones Geométricas</a>
+                        </li>
+                        <li>
+                            <a href="index_desing.html">Diseño de Interfaces</a>
+                        </li>
+                        <li>
+                            <a href="index_animation.html">Animaciones</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a  href="index_about.html">Acerca de</a>
+                </li> 
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a class="nav-link article" id="close-btn" href="#">Cerrar</a> 
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button> 
+  
+                     
+                </div>
+            </nav>
+            
+           
+            <h2>Introducción a GDI+</h2>
+            <p>En esta página se introduce la programación gráfica utilizando las clases del Graphics Device Interface (GDI+). GDI+ es la evolución de GDI, que resultaba compleja de utilizar. En Visual Studio .NET, se puede decir que Microsoft ha cuidado, simplificado y mejorado la manera de trabajar con objetos gráficos.</p>
+            <p>El <strong>namespace System.Drawing</strong> proporciona acceso a la funcionalidad básica del GDI+. Además, se proporcionan otras clases y estructuras en los <strong>namespace System.Text, System.Printing, System.Imaging, System.Drawing2D y System.Design.</strong></p>
+
+            <div class="line"></div>
+
+            <h2>El namespace System.Drawing</h2>
+
+
+                <ul >
+                        <li>
+                          <h3>Clases</h3>
+                           <table class="table">  
+                              <tbody>
+                                <tr>
+                                   <th style="width:25%"> Bitmap </th>
+                                  <td style="width:75%"> Encapsula un bitmap GDI+ . Se utiliza para trabajar con imágenes. </td> 
+                                </tr>
+                                <tr>
+                                  <th >Brush y Brushes</th>
+                                  <td>Se utilizan para rellenar áreas cerradas con un determinado patrón, color o bitmap.</td> 
+                                </tr>
+                                <tr>
+                                  <th >Font</th>
+                                  <td>Define el tipo de letra</td> 
+                                </tr>
+                                <tr>
+                                  <th >FontFamily</th>
+                                  <td>Define una familia de tipos de letra con una similitud básica en el diseño y una cierta variación en el estilo.</td> 
+                                </tr>
+                                <tr>
+                                  <th >Graphics</th>
+                                  <td>Encapsula la superficie gráfica del GDI+.</td> 
+                                </tr>
+                                <tr>
+                                  <th >Icon</th>
+                                  <td>Se utilizan para trabajar con iconos.</td> 
+                                </tr>
+                                <tr>
+                                  <th >Image</th>
+                                  <td>Clase base abstracta que proporciona funcionalidad para las clases <strong>Bitmap</strong>, <strong>Icon</strong> y <strong>Metafile</strong>.</td> 
+                                </tr>
+                                <tr>
+                                  <th >Pen y Pens</th>
+                                  <td>Para dibujar líneas, curvas, figuras, etc</td> 
+                                </tr>
+                                <tr>
+                                  <th >Region</th>
+                                  <td>Describe el interior de una superficie.</td> 
+                                </tr>
+                                <tr>
+                                  <th >SolidBrush</th>
+                                  <td>Define un objeto brush de color simple.</td> 
+                                </tr>
+                              </tbody>
+                            </table>
+                        </li>
+                        <li>
+                            <h3>Estructuras</h3>
+                            <table class="table"> 
+                               
+                              <tbody>
+                                <tr>
+                                  <th style="width:25%">Color</th>
+                                  <td style="width:75%">Color ARGB.</td> 
+                                </tr>
+                                <tr>
+                                  <th >Point y PointF</th>
+                                  <td>Para trabajar con puntos en el plano.</td> 
+                                </tr>
+                                <tr>
+                                  <th >Rectangle y RectangleF</th>
+                                  <td>Para trabajar con rectángulos.</td> 
+                                </tr>
+                                <tr>
+                                  <th >Size y SizeF</th>
+                                  <td>Para trabajar con las dimensiones de una figura.</td> 
+                                </tr>
+                              </tbody>
+                            </table>
+                        </li>
+                        <li>
+                            <h3>Enumeraciones</h3>
+                            <table class="table">  
+                              <tbody>
+                                <tr>
+                                  <th style="width:25%">ContentAlignment</th>
+                                  <td style="width:75%">Especifica el alineamiento del contenido de una figura.</td> 
+                                </tr>
+                                <tr>
+                                  <th >FontStyle</th>
+                                  <td>Estilo del texto.</td> 
+                                </tr>
+                                <tr>
+                                  <th >GraphicsUnit</th>
+                                  <td>Especifica la unidad de medida de los datos.</td> 
+                                </tr>
+                              </tbody>
+                            </table>
+                        </li>
+                       
+                </ul>
+
+
+               <p> Para trabajar con el GDI+ es imprescindible comprender la clase <strong>Graphics</strong> que proporciona métodos para dibujar en la pantalla, como <strong>Rectangle</strong> y <strong>Point</strong>. Por eso, seestudiará en primer lugar. Posteriormente se explicarán las clases y estructuras más utilizadas y comunes del GDI+ como <strong>Pen, Brush, Rectangle, Point, etc.</strong></p>
+ 
+
+            <div class="line"></div>
+
+             
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="js/jquery.min.js"></script> 
+    <!-- Popper.JS -->
+    <script src="js/popper.min.js"></script>  
+    <!-- Bootstrap JS --> 
+    <script src="js/bootstrap.min.js" ></script>  
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+   
+            $('#close-btn').on('click', e => {
+                window.close() 
+            })
+        });
+    </script>
+</body>
+
+</html>
+
+
+ 

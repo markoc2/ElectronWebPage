@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Curso : Diseño y Programación de Aplicaciones Gráficas</title>
+
+    <!-- Bootstrap CSS CDN --> 
+    <link rel="stylesheet" href="css/bootstrap.min.css"  >
+    <!-- Our Custom CSS --> 
+    <link rel="stylesheet" href="css/style5.css"  > 
+
+    <!-- Font Awesome JS -->
+    <script src="js/solid.js" ></script>  
+    <script src="js/fontawesome.js" ></script>   
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h4>Aplicaciones Gráficas en C#</h4>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Menú</p>
+                <li >
+                     <a href="index.html">Inicio</a>
+                </li>
+                <li>
+                      <a  href="index_intro.html">Introducción</a>
+                     
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle show">Aplicaciones Gráficas</a>
+                    <ul class="  list-unstyled" id="pageSubmenu">
+                        <li>
+                           <a  href="index_proy.html">Creación de proyecto</a>
+                        </li>
+                        <li class="active">
+                            <a href="index_transf.html">Tranformaciones Geométricas</a>
+                        </li>
+                        <li>
+                            <a href="index_desing.html">Diseño de Interfaces</a>
+                        </li>
+                        <li>
+                            <a href="index_animation.html">Animaciones</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a  href="index_about.html">Acerca de</a>
+                </li> 
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a class="nav-link article" id="close-btn" href="#">Cerrar</a> 
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button> 
+  
+                     
+                </div>
+            </nav>
+
+
+            <h2>Clases y estructuras del <strong>namespace System.Drawing</strong></h2>
+             <div class="line"></div>
+
+            <ul id="indice"  style="list-style:square">
+
+            	<li>Clases
+					<ul  style="list-style:none">
+						<li><a href="#graphics">Clase Graphics</a></li>
+						<li><a href="#pen">Clase Pen</a></li>
+						<li><a href="#brush">Clase Brush</a></li>
+						<li><a href="#font">Clase Font</a></li>
+					</ul>
+				</li>
+				<li>Estructuras
+					<ul style="list-style:none">
+						<li><a href="#ecolor">Estructura Color</a></li>
+						<li><a href="#epoint">Estructura Point</a></li>
+						<li><a href="#erectangle">Estructura Rectangle</a></li>
+						<li><a href="#size">Clase Size</a></li>
+						<li><a href="#image">Clase Image</a></li>
+						
+					</ul>
+				</li>
+				
+				
+			</ul>
+
+            <div class="line"></div>
+
+            <h3 id="graphics">Clase Graphics</h3> 
+
+            <p><strong>Graphics</strong> encapsula las superficies de dibujo de los formularios. Antes de dibujar cualquier objeto gráfico -un punto, una elipse o un rectágulo, etc- es necesario crear u obtener el objeto <strong>Graphics</strong> de la superficie. En general, se utiliza el evento Paint del formulario para obtener una referencia al objeto <strong>Graphics</strong> del formulario porque cuando ocurre ese evento se le pasa como argumento al método manejador un objeto de la clase <strong>PaintEventArgs</strong> que tiene una propiedad que también se llama <strong>Graphics</strong> que devuelve el objeto <strong>Graphics</strong> del formulario.</p>
+
+<pre lang="language-scss">
+ private void formulario_Paint(object sender, PaintEventArgs e)
+	{
+		Graphics g = e.Graphics;
+		//código
+	}
+</pre>
+
+
+			 <p>Otras formas de obtener el objeto Graphics son las siguientes: </p>
+
+<ol  type="a">
+                        <li>
+                           <p>Sobreescrir el método <strong>OnPaint()</strong>, que es un método virtual que la clase <strong>Form</strong> hereda de la clase <strong>Control</strong>. Por ejemplo </p>
+ <pre lang="language-scss">
+protected override void OnPaint ( PaintEventArgs e)
+{
+	Graphics g = e.Graphics;
+}
+</pre>
+                        </li>
+                        <li>
+                            <p>Si se desea utilizar otro evento –por ejemplo, si se quiere dibujar al pulsar un botón del formulario- no resulta lógico esperar a que se produzca el evento Paint. En estas situaciones, se puede obtener el objeto Graphics invocando al método <strong>CreateGraphics()</strong> del formulario. En este último caso –cuando lo obtiene el programador directamente a través de <strong>CreateGraphics()</strong>- es muy importante invocar al método <strong>Dispose()</strong> al final del método, para liberar esos recursos, ya que el <strong>Garbage Collector</strong> no lo hará por defecto en este caso. No es necesario hacerlo cuando se obtiene a través de la propiedad Graphics: </p>
+
+<pre lang="language-scss">
+private void formulario_Click(object sender, EventArgs e)
+{
+	Graphics g = this.CreateGraphics();
+	//código
+	g.Dispose(); //Muy importante liberar recursos
+	 
+	//cuando se utiliza este método
+}
+</pre>
+                        </li>
+                        <li>
+                            <p>El objeto <strong>Graphics</strong> se puede también obtener a través de distintos métodos estáticos de la clase <strong>System.Drawing.Graphics</strong> que aceptan como parámetro un fichero y devuelven un objeto gráfico.
+
+                            Por ejemplo: </p>
+<pre lang="language-scss">
+Graphics g = Graphics.FromFile(“@c:\temporal\fichero.jpg”);
+</pre>
+                        </li>
+                        
+                    </ol>
+ 
+
+            <div class="line"></div>
+  
+
+            <h3>Métodos</h3>
+
+		<p>Una vez que se tiene la referencia del objeto <strong>Graphics</strong> se puede invocar cualquier miembro de la clase Graphics para dibujar objetos. Los métodos más importantes de esta clase son:</p>
+
+
+ 		<table class="table">  
+          <tbody>       
+			<tr><th style="width:25%">DrawArc</th> <td style="width:75%">Dibuja un arco.</td>
+			<tr><th>DrawBezier</th> <td>Dibuja una curva de Bezier.</td>
+			<tr><th>DrawCurve</th> <td>Dibuja una curva definida por un array de puntos.</td>
+			<tr><th>DrawEllipse</th> <td>Dibuja una elipse.</td>
+			<tr><th>DrawLine</th> <td>Dibuja una línea recta.</td>
+			<tr><th>DrawPolygon</th> <td>Dibuja un polígono.</td>
+			<tr><th>DrawRectangle</th> <td>Dibuja un rectángulo.</td>
+			<tr><th>FillEllipse</th> <td>Rellena el interior de una elipse.</td>
+			<tr><th>FillPolygon</th> <td>Rellena el interior de un polígono definido por un array de puntos.</td>
+			<tr><th>FillRectangle</th> <td>Rellena el interior de un rectángulo con un determinado Brush.</td>
+			<tr><th>FillRectangles</th> <td>Rellena el interior de una serie de rectángulos con un determinado <strom>Brush.</strom></td>
+			<tr><th>FillRegion</th> <td>Rellena el interior de una región.</td>
+          </tbody>
+        </table>
+
+
+		 
+		<p>Esta clase posee más métodos para dibujar. Aquí se han señalado los más importantes.
+		Además, tiene métodos muy útiles para trabajar con imágenes e iconos -posteriormente
+		se estudiarán ambas clases-:</p>
+		 
+		<p>Los métodos más importantes en este sentido son:</p>
+
+		<table class="table">  
+			<tbody> 
+				<tr> <th  style="width:25%">DrawIcon</th > <td  style="width:75%"> Dibuja un icono</td> </tr>
+				<tr> <th >DrawIconUnstretched</th > <td> Dibuja un icono con su tamaño original en una determinada posición.</td> </tr>
+				<tr> <th >DrawImage</th > <td> Sitúa una imagen en la pantalla</td> </tr>
+				<tr> <th >DrawImageUnscaled</th > <td> Dibuja una imagen con su tamaño original y en un determinado lugar.</td> </tr>
+				<tr> <th >DrawString</th > <td> Escribe texto</td> </tr>
+				<tr> <th >RotateTransform</th > <td> Gira la imagen un angulo especificado</td> </tr>
+				<tr> <th >ScaleTransform</th > <td> Aplica una escala a la imagen</td> </tr>
+				<tr> <th >TranslateTransform</th > <td> Desplaza la imagen</td> </tr>
+			</tbody>
+		</table>
+
+			 
+			<p>La gran mayoría de ellos están sobrecargados. Por ejemplo, considérese el método
+			<strong>DrawIcon</strong>:</p>
+
+			<ul>
+				<li>
+				Para dibujar el icono unIcono en el rectángulo r.
+			<pre lang="language-scss">
+public void DrawIcon(Icon unIcono, Rectangle r);
+</pre>
+			</li>
+				<li>
+				Para dibujar el icono unIcono en la posición (x, y).
+			<pre lang="language-scss">
+public void DrawIcon(Icon unIcono, int x, int y);
+</pre>
+			</li>
+			</ul>
+
+			<p>Otro ejemplo lo constituye el método <strong>DrawImage</strong>. Los parámetros son muy elocuentes de la función que realizan y por eso no se explicarán aquí:</p>
+
+ <pre lang="language-scss">
+public void DrawImage(Image unaImagen, Point p);
+public void DrawImage(Image unaImagen, Rectangle r);
+public void DrawImage(Image unaImagen, int x, int y);
+public void DrawImage(Image unaImagen, int ancho, int alto);
+public void DrawImage(Image unaImagen, int x, int y, int ancho, int alto);
+</pre>
+
+			<p>Con los demás métodos sucede algo similar. Sería muy extenso definir aquí todas las
+			definiciones de todos los métodos. 
+			Otros tres métodos de interés son:</p>
+
+			<table class="table">  
+				<tbody> 
+					<tr> <td  style="width:25%:">Graphics FromImage(Image unaImagen)</td> 
+						<td  style="width:75%"> Crea un Nuevo objeto <strong>Graphics</strong> a partir del objeto Image especificado.</td> </tr>
+					<tr> <td >void Clear(Color unColor)</td> 
+						<td> Rellena la superficie con el color de fondo.</td> </tr>
+					<tr> <td >void Dispose()</td> 
+						<td> Borra el objeto <strong>Graphics</strong> y libera la memoria.</td> </tr> 
+				</tbody>
+			</table>
+
+			 
+			<p>Antes de comenzar a dibujar nada, es preciso definir el estilo del trabajo –es decir, especificar el color, la anchura y tipo, etc de las líneas del gráfico-, utilizando las estructuras definidas en este namespace. Los principales son <strong>Brush, Pen, Font y Color.</strong></p>
+ 
+
+
+            <div class="line"></div>
+
+            <h3 id="pen">Clase Pen</h3> 
+<p>La clase <strong>System.Drawing.Pen</strong> sirve para especificar el ancho y el estilo de la línea de dibujo o de la figura geométrica. No sólo indica el color del trazado sino el tipo –a rayas, puntos, contínua...-.
+
+Los constructores de la clase Pen son:</p>
+
+<pre lang="language-scss"> 
+public Pen(Color colorDeLinea);
+public Pen(Brush brocha);
+public Pen(Brush brocha, float anchoDeLinea);
+public Pen(Color colorDeLinea, float anchoDeLinea);
+</pre>
+
+<p>Por ejemplo:</p>
+
+<pre lang="language-scss"> 
+Pen unLapiz = new Pen( Color.Orange );
+Pen otroLapiz= new Pen( Color.Yellow, 30 );
+</pre>
+
+<p>Sin embargo, se puede utilizar la clase System.Drawing.Pens que no tiene constructor público y se utiliza a través de sus propiedades estáticas que devuelven un objeto Pen de la anchura de un píxel.
+
+Por ejemplo:</p>
+
+<pre lang="language-scss"> 
+Pen lapizSolidoAmarillo = Pens.Yellow;
+</pre>
+
+<p>Las propiedades más importantes de la clase Pen son:</p>
+
+		<table class="table">  
+			<tbody> 
+				<tr> <th  style="width:25%">Brush</th > <td  style="width:75%"> Define el brush (la brocha).</td> </tr>
+				<tr> <th >Color</th > <td> Define el color.</td> </tr>
+				<tr> <th >Width</th > <td> Define el ancho.</td> </tr> 
+			</tbody>
+		</table>
+  
+
+<p>Pen tiene otras propiedades y métodos para definir el estilo de la línea –a puntos,
+contínua, etc- o para rotar, trasladar o escalar una imagen o figura, como por ejemplo:</p>
+
+<pre lang="language-scss"> 
+public void RotateTransform(float angulo);
+public void TranslateTransform(float dx, float dy);
+public void ScaleTransform(float sx, float sy);
+</pre>
+
+<p>Por ejemplo:</p>
+
+<pre lang="language-scss"> 
+// Crea un objeto Pen
+Pen lapiz = new Pen(Color.Black, 5);
+// Dibuja un rectangulo con el Pen lapiz
+e.Graphics.DrawRectangle(lapiz, 10, 10, 100, 100);
+// Escala el lapiz en la direccion X
+lapiz.ScaleTransform(2, 1);
+// Rota 90 grados
+lapiz.RotateTransform(90);
+// Dibuja un segundo rectangulo con lapiz
+e.Graphics.DrawRectangle(lapiz, 120, 10, 100, 100);
+</pre>
+            <div class="line"></div>
+
+            <h3 id="brush">Clase Brush</h3> 
+
+<p>Esta clase proporciona funcionalidad para rellenar una determinada región o figura con el color sólido –color, textura, etc- que se indique. La clase <strong>System.Drawing.Brush</strong> es una clase base abstracta y no puede ser instanciada, es decir, no se pueden crear objetos de esta clase. Para crear un objeto Brush se debe utilizar alguna de sus clases derivadas como <strong>SolidBrush, TextureBrush o LinearGradientBrush</strong>.
+
+Por ejemplo:</p>
+
+
+<pre lang="language-scss">
+Brush colorSolidoBeige = new SolidBrush(Color.Beige);
+Brush colorNaranjaMarron = new SolidBrush(Color.FromArgb(255,150,0));
+</pre>
+
+<p>También puede utilizarse la clase <strong>System.Drawing.Brused</strong>. No pueden crearse objetos
+de esta clase porque no tiene un constructor público y se utiliza a través de sus
+propiedades estáticas que devuelven un objeto <strong>Brush</strong> del color que se ha especificado.
+
+Por ejemplo:
+</p>
+
+<pre lang="language-scss">
+Brush solidoAzul = Brushes.Blue;
+Brush solidoChocolate = Brused.Chocolate;
+</pre>
+
+
+ <div class="line"></div>
+
+            <h3 id="font">Clase Font</h3> 
+
+<p>Esta clase permite trabajar y definir las características –tipo, tamaño, color, estilo, etc- de letra en el objeto Graphics.</p>
+
+<p>Los constructores más importantes son:</p>
+
+<pre lang="language-scss">
+public Font(FontFamily familia, float tamaño);
+public Font(FontFamily familia, float tamaño, FontStyle estilo);
+public Font(string tipoDeLetra, float tamaño);
+public Font(string tipoDeLetra, float tamaño, FontStyle estilo);
+public Font(Font fuente, FontStyle estilo);
+</pre>
+
+<p>FontStyle es una enumeración con los siguientes miembros:</p>
+
+		<table class="table">  
+			<tbody> 
+				<tr> <th  style="width:25%">Bold</th > <td  style="width:75%"> Texto en negrita.</td> </tr>
+				<tr> <th >Italic</th > <td> Texto en cursiva.</td> </tr>
+				<tr> <th >Regular</th > <td> Texto Normal.</td> </tr>
+				<tr> <th >Strikeout</th > <td> Texto tachado.</td> </tr>
+				<tr> <th >Underline</th > <td> Texto subrayado</td> </tr>  
+			</tbody>
+		</table>
+
+
+<p>Por ejemplo:</p>
+
+<pre lang="language-scss">
+Font unaFuente = new Font(“Verdana”, 22);
+Font otraFuente = new Font(“Courier”, 12);
+</pre>
+
+<p>Si se desea que la letra asigne varios de los estilos, basta con “sumar” el estilo de la
+letra, utilizando el operador |.</p>
+
+<pre lang="language-scss">
+Font segundaFuente = new Font(“Georgia”, 22, Bold | Italic);
+</pre>
+
+<p>Las propiedades de Font más importantes son:</p>
+
+		<table class="table">  
+			<tbody> 
+				<tr> <th style="width:25%">Bold </th> <td style="width:75%"> Indica si la fuente es negrita.</td></tr>
+				<tr> <th >FontFamily </th> <td > Obtiene el FontFamily de esa fuente.</td></tr>
+				<tr> <th >Height </th> <td > Obtiene la altura de la fuente.</td></tr>
+				<tr> <th >Italic </th> <td > Indica si la fuente es cursiva.</td></tr>
+				<tr> <th >Name </th> <td > Nombre de la fuente.</td></tr>
+				<tr> <th >Size </th> <td > Tamaño de la fuente..</td></tr>
+				<tr> <th >SizeInPoints </th> <td > Tamaño, en puntos, de la fuente.</td></tr>
+				<tr> <th >Strikeout </th> <td > Indica si la fuente está “tachada”.</td></tr>
+				<tr> <th >Style </th> <td > Estilo de la fuente.</td></tr>
+				<tr> <th >Underline </th> <td > Indica si la fuente está subrayada.</td></tr>
+				<tr> <th >Unit </th> <td > Define la medida para la fuente actual.</td></tr> 
+			</tbody>
+		</table>
+
+<p >Ejemplo :</p>
+
+<pre lang="language-scss">
+protected override OnPaint(PaintEventArgs e)
+{
+	Graphics dc = e.Graphics;
+	Brush brochaAzul = Brushes.Blue;
+	Brush brochaNegra = Brushes.Black;
+	Font unaFuente = new Font(“Verdana”, 22);
+	Font otraFuente = new Font(“Times New Roman”, FontStyle.Italic | FontStyle.Underline);
+	dc.DrawString(“Una frase”, unaFuente, brochaAzul, 10,100);
+	// Más codigo
+	base.OnPaint(e);
+}
+</pre>
+<p>Para obtener todas las fuentes del sistema, se puede utilizar la clase <strong>InstalledFontCollection</strong>, del namespace <strong>System.Drawing.Text</strong>. Esta clase tiene una propiedad, Familie, que devuelve un array con todas las fuentes disponibles del sistema.</p>
+
+<pre lang="language-scss">
+InstalledFontCollection fuentes = new InstalledFontCollection();
+FontFamily[] familia = fuentes.Families;
+foreach ( FontFamily f in familia)
+{
+//codigo
+}</pre>
+
+
+
+
+ <div class="line"></div>
+
+            <h3 id="ecolor">Estructura Color</h3> 
+
+
+<p>La estructura Color está representada por un color ARGB (Alpha, Red, Green, Blue). Las
+propiedades son:</p>
+
+		<table class="table">  
+			<tbody> 
+			<tr><th>byte A</th> <td> valor del componente alpha del <strong>Color</strong>.</td></tr>
+			<tr><th>byte B</th> <td> valor del componente azul (Blue) del <strong>Color</strong>.</td></tr>
+			<tr><th>byte G</th> <td> valor del componente verde (Green) del <strong>Color</strong>.</td></tr>
+			<tr><th>byte R</th> <td> valor del componente rojo (Red) del <strong>Color</strong>.</td></tr>
+			</tbody>
+		</table>
+
+<p>Casi todos los miembros de la estructura Color son estáticos y no es necesario crear un
+objeto de esta clase para trabajar con color determinado. Esta clase tiene un importante
+método estático sobrecargado denominado FromArgb, que define un objeto color. Este
+método está sobrecargado:</p>
+
+
+<pre lang="language-scss">
+public static Color FromArgb(int rojo, int verde, int azul);
+public static Color FromArgb(int alpha, Color baseColor);
+public static Color FromArgb(int alpha, int rojo, int verde, int azul);
+public static Color FromArgb(int argb);
+</pre>
+
+<p>El camino más usual para representar un color es a través del primer constructor,
+pasándole 3 enteros entre 0 y 255, que corresponden a las cantidades de la mezcla de
+los colores rojo, verde y azul, donde 0 representa una cantidad de color nula y 255 la
+máxima, un 100% de color.
+<br>
+Por ejemplo:</p>
+
+
+<pre lang="language-scss">
+Color rojo = Color.FromArgb(255, 0, 0);
+Color negro = Color.FromArgb(0, 0, 0);
+Color mezcla = Color.FromArgb(150, 200, 100);
+</pre>
+
+<p>Esta clase define una serie de constantes que corresponden a los colores más comunes.
+Son propiedades estáticas y públicas de sólo lectura que devuelven un objeto de tipo
+Color con el color especificado.<br>
+Por eso, es lo mismo:</p>
+
+<pre lang="language-scss">
+this.BackColor = Color.White;
+</pre>
+
+<P>que:</P>
+
+<pre lang="language-scss">
+this.BackColor = Color.FromArgb(255,255,255);
+Hay cientos de colores definidos.
+</pre>
+ 
+ <P>Hay cientos de colores definidos.</P>
+
+
+            <h3 id="epoint">Estructura Point</h3>
+
+
+<p>Esta estructura tiene dos propiedades que representan las coordenadas X e Y del punto a
+partir del origen. X e Y, por defecto, se representan en pixeles. Este tipo también tiene un
+método muy útil que es:</p>
+
+<pre lang="language-scss">
+void Offset(int dx, int dy), que traslada el punto en una cantidad dada.
+</pre>
+
+<p>El constructor más usual es:</p>
+
+<pre lang="language-scss">
+public Point(int x, int y);
+</pre>
+
+<p>Por ejemplo:</p>
+
+<pre lang="language-scss">
+Point p1 = new Point( 30, 30);
+Point p2 = new Point( 130, 250);
+Point p3 = new Point( 0, 0);
+p3.X = 15;
+p3.Y = 45;
+p1.Offset(100,100);
+System.Console.WriteLine(“p1 = {0}”,p1);
+System.Console.WriteLine(“p2 = {0}”,p2);
+System.Console.WriteLine(“p3 = {0}”,p3);
+</pre>
+
+<p>PointF es una estructura muy similar a <strong>Point</strong>, excepto que <strong>X</strong> e <strong>Y</strong> son de tipo <strong>float</strong>.</p>
+
+
+<h3 id="erectangle">Estructura Rectangle</h3>
+
+<p>Esta estructura permite construir objetos que representan una región rectangular. Como sucede en la estructura Point, también se define la estructura RectangleF, que es idéntica a ésta pero que sus coordenadas son de tipo float. 
+
+Los constructores de esta clase son:</p>
+
+<pre lang="language-scss">
+public Rectangle(Point esquinaSupIzda, Size tamaño);
+public Rectangle(int x, int y, int ancho, int alto);
+</pre>
+
+<p>Los métodos y propiedades más importantes son:</p>
+
+   
+		<table class="table">  
+			<tbody> 
+<tr><th>int X</th><td> Coordenada x de la esquina superior izquierda del rectángulo.</td></tr>
+<tr><th>int Y</th><td> Coordenada y de la esquina superior izquierda del rectángulo.</td></tr>
+<tr><th>int Left</th><td> Coordenada x de la esquina superior izquierda..</td></tr>
+<tr><th>int Right</th><td> Coordenada x de la esquina inferior derecha del rectángulo.</td></tr>
+<tr><th>int Top</th><td> Coordenada y de la esquina superior izquierda del rectangulo.</td></tr>
+<tr><th>int Bottom</th><td> Coordenada y de la esquina inferior derecha del rectangulo.</td></tr>
+<tr><th>int Height</th><td> Altura del rectangulo.</td></tr>
+<tr><th>int Width</th><td> Ancho del rectángulo.</td></tr>
+<tr><th>Point Location</th><td> Coordenadas de la esquina superior izquierda del rectángulo.</td></tr>
+<tr><th>Size Size</th><td> Tamaño del rectángulo.</td></tr>
+<tr><th>bool IsEmpty()</th><td> Examina si Width o Height son 0.</td></tr>
+<tr><th>void Offset(int dx, int dy)</th><td> Traslada el rectangulo.</td></tr>
+<tr><th>bool Contains(Point p) </th><td>Devuelve true o false dependiendo de que el punto p esté situado en el interior del rectángulo que invoca al método</td></tr>
+</tbody>
+		</table>
+
+<p>Por ejemplo:</p>
+
+<pre lang="language-scss">
+Rectangle r = new Rectangle(0, 0, 150, 200);
+Point p = new Point(50, 50);
+if(r.Contains(p))
+	System.Console.WriteLine(“p está en el interior de r”);
+else
+	System.Console.WriteLine(“p está fuera de r”);
+</pre>
+
+
+
+
+<h3 id="size">Clase Size</h3>
+
+<p>Las estructuras <strong>Size</strong> y <strong>SizeF</strong> son muy parecidas a <strong>Point</strong> y <strong>PointF</strong>.
+<strong>Size</strong> tiene dos campos enteros<strong> –SizeF</strong> dos float- que representan una distancia
+horizontal y otra vertical, llamados <strong>Width y Height</strong> respectivamente.
+Aunque las estructuras son muy parecidas, Point se utiliza para indicar donde está algo y Size para definir su “tamaño”.</p>
+<p> Por ejemplo:</p>
+
+<pre lang="language-scss">
+Point punto=new Point(21,78);
+Size tamaño=new Size(40,50),
+Rectangle r=new Rectangulo(punto,tamaño);
+</pre>
+
+<h3 id="image">Clase Image</h3>
+
+<p>En C# es relativamente sencillo manipular imágenes, cambiando sus tamaños, rotándolas, cortándolas, etc. La funcionalidad la proporciona la clase abstracta <strong> System.Drawing.Image.</strong> Una instancia de esta clase representa una imagen o un dibujo. No tiene ningún constructor público. Sin embargo, tiene un método, <strong> FromFile</strong> , que devuelve un objeto de esta clase si se le pasa como argumento el nombre de un fichero. Su estructura es:</p>
+
+<pre lang="language-scss">
+public static Image FromFile(string unFichero);</pre>
+
+<p>Por ejemplo:</p>
+
+
+<pre lang="language-scss">
+Image unaImagen = Image.FromFile(@”c:\temporal\unaFotografia.jpg”);</pre>
+ 
+<p>El fichero puede estar en cualquiera de los formatos gráficos más comunes: .bmp, .gif, .png y .jpg.
+La clase System.Drawing.Graphics tiene métodos para visualizar imágenes en la pantalla.Por ejemplo, se puede utilizar el método DrawImageUnscaled: </p>
+
+
+<pre lang="language-scss">
+g. DrawImageUnscaled(unaImagen, unPunto);
+</pre>
+
+<p>donde, g es el dispositivo gráfico –el objeto Graphics- y unPunto es un objeto de tipo
+Point, que representa la esquina superior izquierda de la imagen en el contenedor.</p>
+
+
+<h4  >Métodos</h4>
+
+<pre lang="language-scss">
+public static Image FromFile(string fich)
+</pre>
+Devuelve un objeto Image desde el fichero especificado. Es un método estático.
+
+<pre lang="language-scss">
+public void Save(string unFichero)
+</pre>
+Salva la imagen con el nombre que se especifica 
+
+
+<h4 >Propiedades</h4>
+
+
+
+		<table class="table">  
+			<tbody> 
+			<tr><th>int Height</th><td> Obtiene la altura del objeto Image. De sólo lectura.</td></tr>
+			<tr><th>Size Size</th><td> Obtiene la dimensión de la imágen.</td></tr>
+			<tr><th>int Width</th><td> Obtiene la anchura del objeto Image. De sólo lectura.</td></tr>
+			</tbody>
+		</table>
+
+
+
+
+<div id="btnTop" class="fixed-action-btn smooth-scroll" style="bottom: 45px; right: 24px;display: none;">
+  <a href="#graphics" class="btn-floating btn-large red">
+    <i class="fa fa-arrow-up"></i>
+  </a>
+</div>
+
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="js/jquery.min.js"></script> 
+    <!-- Popper.JS -->
+    <script src="js/popper.min.js"></script>  
+    <!-- Bootstrap JS --> 
+    <script src="js/bootstrap.min.js" ></script>  
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+   
+            $('#close-btn').on('click', e => {
+                window.close() 
+            })
+
+ 
+			  
+			  var $btn = $('#btnTop');
+			  var $home = $('#graphics');
+			  var startpoint = $home.scrollTop() + $home.height();
+			  
+			  $(window).on('scroll', function() {
+			    if($(window).scrollTop() > startpoint) {
+			      $btn.show();
+			    } else {
+			      $btn.hide();
+			    }
+			  }); 
+ 
+        });
+    </script>
+</body>
+
+</html>
+
+
+ 

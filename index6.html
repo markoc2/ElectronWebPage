@@ -1,0 +1,117 @@
+<html>
+	<header>
+    <link rel="stylesheet" href="css/index.css"  > 
+    <link rel="stylesheet" href="css/bootstrap.min.css"  >
+    <script src="js/jquery.min.js"></script> 
+    <script src="js/index.js"></script> 
+    <script src="js/bootstrap.min.js" ></script>  
+    <script src="js/pagination.min.js"></script>
+    <title>Programación Gráfica en C#</title>
+	</header>
+	<body id="fullpage" >
+	   
+ 
+ <header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">Curso : Programación Gráfica</h4>
+          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Contacto</h4>
+          <ul class="list-unstyled">
+            <li><p class="text-muted">Marco Antonio Cordoba Castrillo</p></li> 
+            <li><a href="#" class="text-muted">Email</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="#" class="navbar-brand d-flex align-items-center"> 
+        <strong>Programación Gráfica en C# </strong>
+      </a>
+        <div id="switch">  <div id="circle">  </div>  </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main role="main" class="section">
+
+  <section class="jumbotron text-center section">
+    <div class="container">
+      <h1>Album example</h1>
+      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+      <p>
+        <a href="#" class="btn btn-primary my-2">Main call to action</a>
+        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+      </p>
+    </div>
+  </section>
+
+
+      <div class="container">
+          <div id="page">
+                <ul class="pagination justify-content-center"></ul>
+          </div>
+      </div>
+
+  <div class="container bg-light-section ">
+  <div class="row">
+    <div class="col-sm-9">
+      
+        <div id="info">Cargando...</div>    
+
+    </div>
+  </div>
+  </div>
+ 
+<div id="Pagina1" style="display: none;"> 
+   <div class="container">
+        <h2 >Open Visual Studio 2019 </h2>
+      <ol>
+      <li><p>On the start window, choose <strong>Crear un nuevo proyecto</strong>.</p>
+      <p><img src="images/visualstudio1.png" alt="Ver la ventana 'Crear un nuevo proyecto' " data-linktype="relative-path"></p>
+      </li>
+      <li><p>On the <strong>Crear un nuevo proyecto</strong> window, enter or type <em>Windows Forms</em> in the search box. Next, choose <strong>Desktop</strong> from the <strong>Tipo de proyecto</strong> list.</p>
+      <p>After you apply the <strong>Tipo de proyecto</strong> filter, seleccionamos <strong>Windows Forms App (.NET Framework)</strong> template for either C# or Visual Basic, and then choose <strong>Next</strong>.</p>
+      <p><img src="images/visualstudio2.png" alt="seleccionamos either the C# or Visual Basic template for the Windows Forms App (.NET Framework)" data-linktype="relative-path"></p>
+      <div class="alert is-info">
+      <p class="alert-title"><span class="docon docon-status-error-outline" aria-hidden="true"></span> Note</p>
+      <p>If you don't see the <strong>Windows Forms App (.NET Framework)</strong> template, you can install it from the <strong>Crear un nuevo proyecto</strong> window. In the <strong>Not finding what you're looking for?</strong> message, seleccionamos <strong>Install more tools and features</strong> link.</p>
+      
+      <p>Next, in the Visual Studio Installer,   seleccionamos <strong>.NET desktop development</strong> workload.</p>
+      <p><img src="images/visualstudio4.png" alt=".NET Core workload in the Visual Studio Installer" data-linktype="relative-path"></p>
+      <p>After that, seleccionamos <strong>Modify</strong> button in the Visual Studio Installer. You might be prompted to save your work; if so, do so. Next, choose <strong>Continue</strong> to install the workload.</p>
+      </div>
+      </li>
+      <li><p>In the <strong>Configure your new project</strong> window, type or enter <em>PictureViewer</em> in the <strong>Project name</strong> box. Then, choose <strong>Create</strong>.
+        <p><img src="images/visualstudio3.png" alt="The 'Install more tools and features' link from the 'Not finding what you're looking for' message in the 'Create new project' window" data-linktype="relative-path"></p>
+      </p>
+      </li>
+      </ol>
+    </div> 
+</div>
+
+<div id="Pagina2"></div>
+ 
+
+</main>
+
+<footer class="text-muted section footer-no-nav navbar-fixed-bottom">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Subir</a>
+    </p>
+    <p>Album example is © Bootstrap, but please download and customize it for yourself!</p> 
+  </div>
+</footer>
+
+	</body>
+</html>

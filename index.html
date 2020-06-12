@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Curso : Diseño y Programación de Aplicaciones Gráficas</title>
+
+    <!-- Bootstrap CSS CDN --> 
+    <link rel="stylesheet" href="css/bootstrap.min.css"  >
+    <!-- Our Custom CSS --> 
+    <link rel="stylesheet" href="css/style5.css"  > 
+
+    <!-- Font Awesome JS -->
+    <script src="js/solid.js" ></script>  
+    <script src="js/fontawesome.js" ></script>   
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h4>Aplicaciones Gráficas en C#</h4>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Menú</p>
+                <li class="active">
+                     <a href="index.html">Inicio</a>
+                </li>
+                <li>
+                     <a  href="index_intro.html">Introducción</a>
+                     
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Aplicaciones Gráficas</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                           <a  href="index_proy.html">Creación de proyecto</a>
+                        </li>
+                        <li>
+                            <a href="index_transf.html">Tranformaciones Geométricas</a>
+                        </li>
+                        <li>
+                            <a href="index_desing.html">Diseño de Interfaces</a>
+                        </li>
+                        <li>
+                            <a href="index_animation.html">Animaciones</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a  href="index_about.html">Acerca de</a>
+                </li> 
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a class="nav-link article" id="close-btn" href="#">Cerrar</a> 
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button> 
+  
+                     
+                </div>
+            </nav>
+
+
+            <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+                <div class="col-md-6 px-0">
+                  <h1 class="display-4 font-italic">Aplicaciones Gráficas en C#</h1>
+                  <p class="lead my-3">Diseño y Programación de Aplicaciones Gráficas</p> 
+                </div>
+              </div>
+
+              <div class="row mb-2">
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 box-shadow h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-primary">Entorno de desarrollo</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">Visual Studio</a>
+              </h3>
+              <div class="mb-1 text-muted">Community 2019</div>
+              <p class="card-text mb-auto">Es una versión simplificada de la versión completa y reemplaza las ediciones express.</p>
+              <a href="https://visualstudio.microsoft.com/es/downloads/">Descarga</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb"  style="width: 200px; height: 250px;" src="images/visual-studio.gif" data-holder-rendered="true">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 box-shadow h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-success">Editor de código rápido</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">Visual Studio Code</a>
+              </h3>
+              <div class="mb-1 text-muted">2019</div>
+              <p class="card-text mb-auto">Editor multiplataforma (Linux, Mac OS, Windows) que puede ampliarse con complementos según sus necesidades.</p>
+              <a href="https://code.visualstudio.com/">Descarga</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb"  style="width: 200px; height: 250px;" src="images/visual-studio-code.gif" data-holder-rendered="true">
+          </div>
+        </div>
+      </div>
+            
+            <h3>REQUISITOS DE HARDWARE</h3>
+            <p>
+                <ul>
+                    <li>Procesador de 1,6 GHz o más rápido</li>
+                    <li>1 GB (32 bits) o 2 GB (64 bits) de RAM (si se ejecuta en una máquina virtual, agregue 512 MB al host)</li>
+                    <li>3 GB de espacio disponible en el disco duro</li>
+                    <li>Unidad de disco duro de 5400 rpm</li>
+                    <li>Tarjeta de vídeo compatible con DirectX 9 con una resolución de pantalla de 1024 x 768 o superior</li>
+                </ul>
+            </p> 
+
+            <h3>REQUISITOS DEL SISTEMA</h3>
+            <p>
+                <ul>
+                    <li>En Windows 8.1 y Windows Server 2012 R2, se necesita la actualización 2919355 (también disponible a través de Windows Update) para que Visual Studio se instale correctamente.</li>
+                </ul>
+            </p> 
+
+            <h3>REQUISITOS ADICIONALES</h3>
+            <p>
+                <ul>
+                    <li>.NET Framework 4.5</li>
+                </ul>
+            </p> 
+ 
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="js/jquery.min.js"></script> 
+    <!-- Popper.JS -->
+    <script src="js/popper.min.js"></script>  
+    <!-- Bootstrap JS --> 
+    <script src="js/bootstrap.min.js" ></script>  
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+   
+            $('#close-btn').on('click', e => {
+                window.close() 
+            })
+        });
+    </script>
+</body>
+
+</html>
+
+
+ 

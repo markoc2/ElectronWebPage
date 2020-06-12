@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Curso : Diseño y Programación de Aplicaciones Gráficas</title>
+
+    <!-- Bootstrap CSS CDN --> 
+    <link rel="stylesheet" href="css/bootstrap.min.css"  >
+    <!-- Our Custom CSS --> 
+    <link rel="stylesheet" href="css/style5.css"  > 
+
+    <!-- Font Awesome JS -->
+    <script src="js/solid.js" ></script>  
+    <script src="js/fontawesome.js" ></script>   
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h4>Aplicaciones Gráficas en C#</h4>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Menú</p>
+                <li >
+                     <a href="index.html">Inicio</a>
+                </li>
+                <li>
+                      <a  href="index_intro.html">Introducción</a>
+                     
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Aplicaciones Gráficas</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                           <a  href="index_proy.html">Creación de proyecto</a>
+                        </li>
+                        <li>
+                            <a href="index_transf.html">Tranformaciones Geométricas</a>
+                        </li>
+                        <li>
+                            <a href="index_desing.html">Diseño de Interfaces</a>
+                        </li>
+                        <li>
+                            <a href="index_animation.html">Animaciones</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a  href="index_about.html">Acerca de</a>
+                </li> 
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a class="nav-link article" id="close-btn" href="#">Cerrar</a> 
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button> 
+  
+                     
+                </div>
+            </nav>
+            
+            <h2>Curso : Diseño y Programación de Aplicaciones Gráficas</h2>
+            <h4>Ing. Hilda Saavedra</h4> 
+
+            <div class="line"></div>
+             <ul>
+                <li>Autor: Marco Antonio Cordoba Castrillo</li> 
+                <li>Carnet #: 99-11377-7</li> 
+             </ul>
+
+            <div class="line"></div>
+
+            <h2>Vinculos Externos</h2>
+                <ul>
+                    <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
+                    <li><a href="https://www.electronjs.org/">Electron JS</a></li> 
+                    <li><a href="https://jquery.com/">Jquery</a></li>
+                </ul>
+             
+ 
+ 
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="js/jquery.min.js"></script> 
+    <!-- Popper.JS -->
+    <script src="js/popper.min.js"></script>  
+    <!-- Bootstrap JS --> 
+    <script src="js/bootstrap.min.js" ></script>  
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+   
+            $('#close-btn').on('click', e => {
+                window.close() 
+            })
+        });
+    </script>
+</body>
+
+</html>
+
+
+ 
